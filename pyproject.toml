@@ -1,0 +1,68 @@
+[project]
+name = "llm-budget-forecast"
+version = "0.1.0"
+description = "Time series forecasting for budget prediction using LLMs"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "chronos-forecasting[training]>=1.5.2",
+    "ipykernel>=6.29.5",
+    "ipywidgets>=8.1.7",
+    "pandas",
+    "numpy==1.26.4",
+    "autogluon==1.3.1",
+    "transformers>=4.38.0",
+    "accelerate>=0.27.2",
+    "prophet>=1.1.4",
+    "matplotlib>=3.7.0",
+    "timesfm[torch]>=0.1.0",
+    "requests",
+    "python-dateutil",
+    "tabulate",
+    "plotly>=6.0.0",
+    "python-dotenv"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "black",
+    "isort",
+    "flake8",
+    "mypy",
+    "pytest",
+    "pytest-cov",
+    "types-tabulate",
+    "types-python-dateutil",
+]
+
+[project.scripts]
+budget-forecast = "llm_budget_forecast.cli:main"
+
+[tool.setuptools]
+packages = ["llm_budget_forecast", "llm_budget_forecast.models", "llm_budget_forecast.data", "llm_budget_forecast.utils"]
+
+# Black configuration
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+
+# isort configuration
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+
+# mypy configuration
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
