@@ -7,12 +7,10 @@ __pycache__/
 *.so
 
 # Data files
-*.csv
+
 *.jsonl
 *.json
-data/raw/
-data/processed/
-data/output/
+
 
 # Distribution / packaging
 .Python
