@@ -116,8 +116,6 @@ dmypy.json
 *.mlmodel
 
 # Large data files
-*.csv
-!data/*.csv  # Keep CSV files in the data directory
 *.parquet
 *.feather
 *.arrow
